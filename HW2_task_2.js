@@ -15,5 +15,5 @@ function selectFromInterval(arr, firstIntParam, secondIntParam) {
                 }
             }
     }
-    console.log(newArr);
+    return newArr;
 }
