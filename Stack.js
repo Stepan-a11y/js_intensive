@@ -1,19 +1,25 @@
-function Queue() {
-    let collection = []
+function Stack() {
+    this.elements = {};
+    this.count = 0;
 
-    this.push = function(element) {
-        collection.push(element)
+    this.push = function (item) {
+        this.elements[this.count] = item;
+        this.count++;
     }
 
-    this.pop = function() {
-        return collection.pop()
+    this.pop = function () {
+        if (this.count === 0) return undefined;
+        this.count--;
+        let res = this.elements[this.count];
+        delete this.elements[this.count];
+        return res;
     }
 
-    this.peek = function() {
-        return collection[collection.length - 1]
+    this.length = function () {
+        return this.count;
     }
 
-    this.size = function() {
-        return collection.length
+    this.peek = function () {
+        return this.elements[this.count - 1];
     }
 }
